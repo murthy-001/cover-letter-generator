@@ -35,3 +35,23 @@ button {
 button:hover {
     background: #0056b3;
 }
+
+.preview {
+    margin-top: 20px;
+    background: #f4f4f4;
+    padding: 15px;
+    border-radius: 8px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+    font-family: "Courier New", Courier, monospace;
+    white-space: pre-wrap;
+    border: 1px solid #ddd;
+}
+
+.preview h3 {
+    margin-top: 0;
+    font-size: 18px;
+}
+
