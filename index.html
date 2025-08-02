@@ -11,7 +11,14 @@
         <h2>Cover Letter Generator</h2>
         <label for="companyName">Company Name:</label>
         <input type="text" id="companyName" placeholder="Enter company name" required>
-        <button onclick="generatePDF()">Generate PDF</button>
+        
+        <button onclick="previewLetter()">Preview</button>
+        <button onclick="generatePDF()">Download PDF</button>
+    </div>
+
+    <div class="preview" id="previewBox">
+        <h3>Cover Letter Preview</h3>
+        <pre id="previewContent"></pre>
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
