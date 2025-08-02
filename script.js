@@ -1,15 +1,7 @@
-function generatePDF() {
-    const { jsPDF } = window.jspdf;
-    const companyName = document.getElementById("companyName").value.trim();
-
-    if (!companyName) {
-        alert("Please enter a company name.");
-        return;
-    }
-
+function generateLetter(companyName) {
     const todayDate = new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
 
-    const coverLetter = `
+    return `
 ${todayDate}
 
 Dear Hiring Manager at ${companyName},
@@ -23,10 +15,32 @@ I am eager to bring my experience in backend engineering, problem-solving, and s
 Best regards,
 Srinivasa Murthy K
     `;
+}
 
+function previewLetter() {
+    const companyName = document.getElementById("companyName").value.trim();
+    if (!companyName) {
+        alert("Please enter a company name.");
+        return;
+    }
+
+    const letterContent = generateLetter(companyName);
+    document.getElementById("previewContent").textContent = letterContent;
+}
+
+function generatePDF() {
+    const { jsPDF } = window.jspdf;
+    const companyName = document.getElementById("companyName").value.trim();
+
+    if (!companyName) {
+        alert("Please enter a company name.");
+        return;
+    }
+
+    const letterContent = generateLetter(companyName);
     const pdf = new jsPDF();
     pdf.setFont("Times", "normal");
     pdf.setFontSize(12);
-    pdf.text(coverLetter, 10, 20);
+    pdf.text(letterContent, 10, 20);
     pdf.save(`${companyName}_Cover_Letter.pdf`);
 }
