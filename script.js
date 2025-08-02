@@ -25,7 +25,11 @@ function previewLetter() {
     }
 
     const letterContent = generateLetter(companyName);
-    document.getElementById("previewContent").textContent = letterContent;
+    const previewBox = document.getElementById("previewBox");
+    const previewContent = document.getElementById("previewContent");
+
+    previewContent.textContent = letterContent;
+    previewBox.style.display = "block"; // Show preview
 }
 
 function generatePDF() {
